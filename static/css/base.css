@@ -1,0 +1,53 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+.carousel-item {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.carousel-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+.carousel-caption {
+  z-index: 10;
+  bottom: 40%;
+}
+.carousel-caption h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.carousel-caption p {
+  font-size: 1.25rem;
+}
+.brand {
+  position: absolute;
+  z-index: 50;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.brand img {
+  height: auto;
+  width: clamp(120px, 25vw, 180px);
+  max-width: 100%;
+  object-fit: contain;
+}
+
+@media only screen and (max-width: 768px) {
+  .carousel-caption h1 {
+    font-size: 2rem;
+  }
+  .carousel-caption p {
+    font-size: 1rem;
+  }
+}
