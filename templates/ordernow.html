@@ -1,72 +1,26 @@
- {% extends "dashboard.html" %}
+{% extends "dashboard.html" %} {% block content %}
 
-{% block content %}
- 
- <!-- Brand -->
-
-
-<!-- Carousel -->
-<div id="landingCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-  <div class="brand">
-  <img src="{{ url_for('static', filename='images/white_bg.svg') }}" alt="FoodHub Logo">
+<!-- Video background -->
+<div class="video-wrap">
+  <video class="background-video" autoplay muted loop>
+    <source
+      src="{{ url_for('static', filename='videos/215434.mp4') }}"
+      type="video/mp4"
+    />
+  </video>
 </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1751011983324-fe9d30fe9efd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption text-center">
-        <h1>Delicious Food</h1>
-        <p class="fs-4 text-light">Delivered to Your Door</p>
-        <p class="text-light">Fresh, hot meals ready in minutes</p>
+
+<!-- Simple text overlay -->
+<div class="text-overlay">
+  <img
+    src="../static/images/white_bg.svg"
+    alt="kyabaat"
+    class="img-fluid"
+    onclick="switchToHome()"
+  />
+  <h1>Welcome to Kyabaat</h1>
+  <p>Experience the finest dining at your doorstep</p>
   <a class="btn btn-warning btn-lg mt-3" href="/register">Order Now</a>
-      </div>
-    </div>
-
-    <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1750943082020-4969b2a63084?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption text-center">
-        <h1>Gourmet Quality</h1>
-        <p class="fs-4 text-light">Chef-Crafted Meals</p>
-        <p class="text-light">Experience restaurant-quality dining at home</p>
-  <a class="btn btn-warning btn-lg mt-3" href="/register">Order Now</a>
-      </div>
-    </div>
-
-    <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1665088127661-83aeff6104c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption text-center">
-        <h1>Fresh Ingredients</h1>
-        <p class="fs-4 text-light">Quality You Can Taste</p>
-        <p class="text-light">Made with the finest local ingredients</p>
-  <a class="btn btn-warning btn-lg mt-3" href="/register">Order Now</a>
-      </div>
-    </div>
-
-    <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1667388968964-4aa652df0a9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
-      <div class="carousel-overlay"></div>
-      <div class="carousel-caption text-center">
-        <h1>Comfortable Dining</h1>
-        <p class="fs-4 text-light">Or Enjoy at Home</p>
-        <p class="text-light">Dine-in or delivery, your choice</p>
-  <a class="btn btn-warning btn-lg mt-3" href="/register">Order Now</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#landingCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#landingCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-  </button>
-
-  <!-- Indicators -->
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="0" class="active"></button>
-    <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="1"></button>
-    <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="2"></button>
-    <button type="button" data-bs-target="#landingCarousel" data-bs-slide-to="3"></button>
-  </div>
 </div>
 
 {% endblock content %}

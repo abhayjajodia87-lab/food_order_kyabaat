@@ -1,6 +1,7 @@
 /* misra */
 
-body, html {
+body,
+html {
   height: 100%;
   margin: 0;
   overflow: hidden;
@@ -36,6 +37,20 @@ body, html {
   padding: 0.5rem;
   width: 100%;
   text-align: center;
+}
+
+.btn:hover {
+  text-decoration: none;
+  color: black;
+  background-color: gold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: transparent;
+}
+
+.rlink {
+  color: yellow;
+  text-decoration: none;
+  border: none;
 }
 
 .brand img {
