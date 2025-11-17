@@ -1,3 +1,6 @@
+// pabisa
+
+
 // Simple logout function for beginners
 function logout() {
     // Send a request to the server to end the session

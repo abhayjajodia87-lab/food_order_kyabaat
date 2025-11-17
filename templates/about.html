@@ -1,0 +1,108 @@
+{% extends "dashboard.html" %}
+
+{% block extra_head %}
+  <link href="{{ url_for('static', filename='css/about.css') }}" rel="stylesheet">
+  <!-- Bootstrap Icons for the little feature icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+{% endblock %}
+
+{% block content %}
+
+<section id="about" class="py-5 bg-light">
+  <div class="container py-5">
+    <div class="row align-items-center gy-4">
+      <!-- Text Section -->
+      <div class="col-lg-6">
+        <h2 class="display-5 mb-4">Welcome to Kyabaat</h2>
+        <p class="text-muted mb-3">
+          Kyabaat brings your favourite meals from local restaurants straight to your doorstep. We focus on speed, quality, and simple ordering so you can enjoy great food with no fuss.
+        </p>
+
+        <p class="text-muted mb-3">
+          Our platform works with trusted restaurants and delivery partners to ensure food arrives fresh and on time. Use our menu to browse dishes, place an order, and track delivery.
+        </p>
+
+        <p class="text-muted mb-4">
+          Try something new today — we’re here to make your next meal delightful.
+        </p>
+
+        <!-- Features / Icons Row -->
+        <div class="row text-center g-4 mt-3">
+          <div class="col-4">
+            <div class="d-flex flex-column align-items-center">
+              <i class="bi bi-truck fs-1 text-warning mb-2" aria-hidden="true"></i>
+              <div class="fw-medium">Fast Delivery</div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="d-flex flex-column align-items-center">
+              <i class="bi bi-clock-history fs-1 text-warning mb-2" aria-hidden="true"></i>
+              <div class="fw-medium">Reliable Service</div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="d-flex flex-column align-items-center">
+              <i class="bi bi-award fs-1 text-warning mb-2" aria-hidden="true"></i>
+              <div class="fw-medium">Top Restaurants</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Section -->
+      <div class="col-lg-6">
+        <div class="rounded overflow-hidden shadow hover-shadow">
+          <img
+            src="https://images.unsplash.com/photo-1670819916552-67698b1c86ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+            alt="Chef cooking"
+            class="img-fluid w-100"
+            style="height: 400px; object-fit: cover;"
+            onerror="this.src='https://via.placeholder.com/800x500?text=Image+Not+Available';"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="row mt-5">
+      <div class="col-12 text-center mb-4">
+        <h3>Our Team</h3>
+        <p class="text-muted">A small team working to make your food experience better.</p>
+      </div>
+
+      <div class="col-md-6 d-flex align-items-center mb-3">
+        <img src="{{ url_for('static', filename='images/profile/4.jpeg') }}" alt="Jaspreet" class="rounded-circle me-3" style="width:80px; height:80px; object-fit:cover;" data-bs-toggle="tooltip" data-bs-placement="top" title="gandi baat gandi gandi baat">
+        <div>
+          <h5 class="mb-0">Abhay Ganda</h5>
+          <small class="text-muted">Full Stack Developer</small>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex align-items-center mb-3">
+        <img src="{{ url_for('static', filename='images/profile/1.jpeg') }}" alt="Team member" class="rounded-circle me-3" style="width:80px; height:80px; object-fit:cover;" data-bs-toggle="tooltip" data-bs-placement="top" title="Jorse bolo 'Jai Didi ki'">
+        <div>
+          <h5 class="mb-0">Nirmala Didi</h5>
+          <small class="text-muted">Designer</small>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex align-items-center mb-3">
+        <img src="{{ url_for('static', filename='images/profile/2.jpeg') }}" alt="Team member" class="rounded-circle me-3" style="width:80px; height:80px; object-fit:cover;" data-bs-toggle="tooltip" data-bs-placement="top" title="kata kat kat kat kat kat kat">
+        <div>
+          <h5 class="mb-0">Misra bhahen</h5>
+          <small class="text-muted">Operations</small>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex align-items-center mb-3">
+        <img src="{{ url_for('static', filename='images/profile/4.png') }}" alt="Team member" class="rounded-circle me-3" style="width:80px; height:80px; object-fit:cover;" data-bs-toggle="tooltip" data-bs-placement="top" title="belpuri wala aala re">
+        <div>
+          <h5 class="mb-0">Paras Bhelpuri wala</h5>
+          <small class="text-muted">Support</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    
+{% endblock content %}

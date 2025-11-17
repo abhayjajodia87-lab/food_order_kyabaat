@@ -74,23 +74,36 @@ class User:
             # Find user in database
             print(f"Attempting to find user with email: {email}")
             user = db.users.find_one({"email": email, "password": password})
-            
+
+            # Hardcoded admin credentials (development). Replace with proper admin user in DB for production.
+            if email == "admin@kyabaat.com" and password == "admin123":
+                session['user_id'] = "admin"
+                session['user_name'] = "Admin"
+                session['user_email'] = email
+                session['is_admin'] = True
+
+                return jsonify({
+                    "message": "Admin login successful!",
+                    "user": {"id": "admin", "name": "Admin", "email": email, "is_admin": True}
+                }), 200
+
             if user:
                 print(f"User found: {user['name']}")
                 # Remove _id before sending (it's not JSON serializable)
                 user.pop('_id', None)
-
                 # Store minimal user info in session (do NOT store password)
                 session['user_id'] = user.get('id')
                 session['user_name'] = user.get('name')
                 session['user_email'] = user.get('email')
+                session['is_admin'] = False
 
                 return jsonify({
                     "message": "Login successful!",
                     "user": {
                         "id": user.get('id'),
                         "name": user.get('name'),
-                        "email": user.get('email')
+                        "email": user.get('email'),
+                        "is_admin": False
                     }
                 }), 200
             
@@ -105,3 +118,5 @@ class User:
         except Exception as e:
             print(f"Error during login: {str(e)}")
             return jsonify({"message": "An error occurred"}), 500
+
+

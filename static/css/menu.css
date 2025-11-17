@@ -1,0 +1,145 @@
+/* pabisa */
+   
+   
+   body {
+      background-color: #121212;
+      color: #f5f5f5;
+      margin-top: 100px;
+
+    }
+
+    /* Specials Section */
+    .specials {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .specials h2 {
+      font-size: 2rem;
+      color: gold;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(243, 226, 47, 0.661);
+    }
+
+    .special-card {
+      display: inline-block;
+      background: #1e1e1e;
+      padding: 1rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px gold;
+      transition: transform 0.3s, box-shadow 0.3s;
+      width: 300px;
+    }
+
+    .special-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px gold;
+    }
+
+    .special-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    .special-card h3 {
+      margin: 0.8rem 0 0.5rem;
+      color: #fff;
+    }
+
+    .special-card p {
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+
+    /* Menu Section */
+    .menu {
+      margin-top: 3rem;
+    }
+
+    .menu h2 {
+      font-size: 2rem;
+      color: whitesmoke;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .menu-item {
+      background: #1e1e1e;
+      border-radius: 15px;
+      border:0.5px solid whitesmoke;
+      border-style: ridge;
+      overflow: hidden;
+    }
+    
+    .menu-item:hover {
+      transform: scale(1.03);
+      border-color: #f5f5f5;
+      box-shadow: 0 0px 20px whitesmoke;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .menu-content {
+      padding: 1rem;
+    }
+
+    .menu-content h3 {
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .menu-content p {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-bottom: 0.5rem;
+    }
+
+    .menu-content span {
+      font-weight: bold;
+      color: gold;
+    }
+
+/* Responsive tweaks: make grid and carousel adapt across devices
+@media (max-width: 1200px) {
+  .card-img-top { height: 220px; }
+  .menu-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+}
+
+@media (max-width: 992px) {
+  .track-wrapper { padding: 12px; }
+  .track { gap: 12px; }
+  .track__item { width: 200px; height: 200px; }
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+  .menu-item img { height: 160px; }
+}
+
+@media (max-width: 576px) {
+  .track__item { width: 150px; height: 150px; }
+  .menu-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .menu-item img { height: 120px; }
+  .menu-content { padding: 0.75rem; }
+  .menu-content h3 { font-size: 1.05rem; }
+  .menu-content p { font-size: 0.85rem; }
+  .price-tag { font-size: 0.85rem; padding: 4px 8px; }
+  h1, .menu h2 { font-size: 1.4rem; }
+  .container, .container-fluid { padding-left: 12px; padding-right: 12px; }
+}
+
+/* Make horizontal carousel touch-friendly */
+.track-wrapper { -webkit-overflow-scrolling: touch; }
+.track { scroll-snap-type: x proximity; }
+.track__item { scroll-snap-align: center; } */

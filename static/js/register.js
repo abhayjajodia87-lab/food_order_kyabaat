@@ -1,3 +1,6 @@
+// nirmala
+
+
 // Get the registration form
 const form = document.getElementById('registerForm');
 

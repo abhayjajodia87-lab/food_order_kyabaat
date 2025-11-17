@@ -1,0 +1,64 @@
+<!-- pabisa -->
+
+{% extends "dashboard.html" %} {% block extra_head %}
+<link
+  href="{{ url_for('static', filename='css/menu.css') }}"
+  rel="stylesheet"
+/>
+{% endblock %} {% block content %}
+
+<div class="container">
+  <section class="specials">
+    <h2>Today's Special Deal {{today}}</h2>
+    <div class="row g-4">
+              {% if menu and menu|length > 0 %} 
+              {% for item in menu %}
+              {% if item.specialday == today %}
+      <div class="col-md-6 col-lg-4">
+        <div class="menu-item">
+          <img
+          src="{{ item.img }}"
+          alt="{{ item.img }}"
+          />
+        </div>
+        <div class="special-content">
+          <h3>{{item.name}}</h3>
+          <p>
+            {{item.description}}
+          </p>
+          <span>{{item.price}}</span>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %} {% else %}
+      <div class="col-12">No items found.
+        {% endif %}
+      </div>
+    </div>
+</section>
+</div>
+
+  <section class="menu">
+    <h2>Our Menu</h2>
+    
+  </section>
+</div>
+<div class="row g-4">
+  {% if menu and menu|length > 0 %} {% for item in menu %}
+  <div class="col-md-6 col-lg-4">
+    <div class="menu-item">
+      <img src="{{ item.img }}" alt="${item.img}" />
+      <div class="menu-content">
+        <h3>{{item.name}}</h3>
+        <p>{{item.description}}</p>
+        <span>₹{{item.price}}</span>
+      </div>
+    </div>
+  </div>
+  {% endfor %} {% else %}
+  <div class="col-12">No items found.</div>
+  {% endif %}
+</div>
+
+
+{% endblock content %}

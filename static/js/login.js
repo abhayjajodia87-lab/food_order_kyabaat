@@ -1,3 +1,6 @@
+
+// paras
+
 // Get form elements
 const form = document.getElementById('loginForm');
 const loginButton = document.getElementById('loginButton');
@@ -25,8 +28,14 @@ form.addEventListener('submit', async function (e) {
 
     const data = await response.json();
     const errorAlert = document.getElementById('errorAlert');
+    console.log('Login response:', data, response);
 
-    if (response.ok) {
+    // Some responses use `is_admin` (snake_case) on the server, some clients
+    // might expect `isAdmin` (camelCase). Check both safely.
+    if (response.ok && data.user && (data.user.is_admin === true || data.user.isAdmin === true)) {
+        console.log("Admin user detected");
+        window.location.href = '/admin';
+    } else if (response.ok) {
         errorAlert.classList.add('d-none');
         window.location.href = '/dashboard';
     } else {

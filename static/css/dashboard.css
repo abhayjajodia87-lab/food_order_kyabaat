@@ -1,0 +1,111 @@
+/* nirmala */
+
+.img-fluid {
+  justify-content: center;
+  margin-right: 50px;
+  height: 50%;
+  margin-top: 40px;
+}
+
+/* Video container takes full space below navbar */
+.video-wrap {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+}
+
+/* Make video fill the container */
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Simple content styling */
+.text-overlay {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  text-shadow: 2px 2px 20px gold;
+}
+
+.text-overlay h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+/* Custom logout button style */
+.logout-btn {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #cc0000;
+  transform: scale(1.05);
+  color: white;
+}
+
+/* Reset default styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fixed Navbar with specific height */
+.navbar {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.btn:hover {
+  text-decoration: none;
+  color: black;
+  background-color: gold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: transparent;
+}
+
+/* Simple style for mobile menu links */
+@media (max-width: 991px) {
+  .nav-link {
+    color: white !important;
+  }
+}
+
+/* Make sure video stays fixed and full screen */
+@media (max-width: 768px) {
+  .navbar {
+    height: 56px;
+  }
+  .video-container {
+    top: 56px;
+    height: calc(100vh - 56px);
+  }
+  .content-wrapper {
+    margin-top: 56px;
+  }
+}
