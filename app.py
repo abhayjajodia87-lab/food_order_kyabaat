@@ -6,6 +6,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 import calendar
 
+
 # Initialize Flask app
 app = Flask(__name__)
 
@@ -55,6 +56,25 @@ def dashboard():
         return redirect(url_for('login_page'))
     return render_template('ordernow.html')
 
+@app.route('/update_item/<db_id>')
+def update_item(db_id):
+    if not session.get('is_admin'):
+        return redirect(url_for('login_page'))
+
+    fm = FoodMenu()
+    item = fm.get_item(db_id=db_id)
+    print('Updating item:', item)
+    if not item:
+        # If item not found, redirect back to view page instead of rendering an error template
+        return redirect(url_for('view_page'))
+    return render_template('update_item.html', item=item)
+
+
+@app.route('/update_item')
+def update_item_root():
+    # Friendly fallback when a link doesn't include an id — redirect to admin view
+    return redirect(url_for('view_page'))
+
 @app.route('/admin')
 def admin_page():
     if not session.get('is_admin'):
@@ -74,18 +94,13 @@ def view_page():
     if not session.get('is_admin'):
         return redirect(url_for('login_page'))
     
-    try:
-        raw_items = list(db.foodmenu.find({}))
+    fm = FoodMenu()
+    resp = fm.get_menu()
+    if resp[1] != 200:
         items = []
-        for it in raw_items:
-            oid = it.get('_id')
-            if oid:
-                it['db_id'] = str(oid)
-            it.pop('_id', None)
-            items.append(it)
-    except Exception as e:
-        print('Error fetching menu for view page:', str(e))
-        items = []
+    else:
+        data = resp[0].get_json()
+        items = data.get('menu', [])
 
     return render_template('view.html', menu=items)
 
@@ -103,19 +118,13 @@ def menu_page():
 
     tz = ZoneInfo("Europe/Helsinki")           
     today = calendar.day_name[datetime.now(tz).weekday()]
-    
-    try:
-        raw_items = list(db.foodmenu.find({}))
+    fm = FoodMenu()
+    resp = fm.get_menu()
+    if resp[1] != 200:
         items = []
-        for it in raw_items:
-            oid = it.get('_id')
-            if oid:
-                it['db_id'] = str(oid)
-            it.pop('_id', None)
-            items.append(it)
-    except Exception as e:
-        print('Error fetching menu for view page:', str(e))
-        items = []
+    else:
+        data = resp[0].get_json()
+        items = data.get('menu', [])
     return render_template('menu.html', menu=items, today=today)
 
 @app.route('/about', methods=['GET'])
@@ -124,12 +133,19 @@ def about_page():
         return redirect(url_for('login_page'))
     return render_template('about.html')
 
+@app.route('/contact', methods=['GET'])
+def contact_page():
+    if 'user_id' not in session:
+        return redirect(url_for('login_page'))
+    return render_template('contact_us.html')
+
 
 
 
 # Import routes after app is created
 from user.route import *
 from foodmenu.route import *
+from foodmenu.models import FoodMenu
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=4000, debug=True)
