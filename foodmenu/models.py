@@ -78,6 +78,35 @@ class FoodMenu:
             print('Error during fetching menu:', str(e))
             return jsonify({'message': 'An error occurred'}), 500
 
+    def get_item(self, db_id=None, item_id=None):
+        """Fetch a single item and return a JSON-serializable dict (or None).
+
+        This helper is used by route handlers that render templates and need a
+        plain dict rather than a Flask Response object.
+        """
+        try:
+            query = None
+            if db_id:
+                query = {'_id': ObjectId(db_id)}
+            elif item_id:
+                query = {'item_id': item_id}
+            else:
+                return None
+
+            doc = db.foodmenu.find_one(query)
+            if not doc:
+                return None
+
+            oid = doc.get('_id')
+            if oid:
+                doc['db_id'] = str(oid)
+            doc.pop('_id', None)
+            return self._sanitize_doc(doc)
+
+        except Exception as e:
+            print('Error fetching item:', str(e))
+            return None
+
     def delete_item(self, db_id=None, item_id=None):
         """Delete an item by db_id (stringified _id) or item_id."""
         try:
