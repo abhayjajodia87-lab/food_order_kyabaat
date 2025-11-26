@@ -1,0 +1,60 @@
+
+{% extends "dashboard.html" %}
+
+{% block content %}
+  
+  <style>
+    body{
+      background:#000;
+      color:#fff;
+      margin-top: 200px;
+      
+    }
+    .contact-card{
+      background:#111;
+      border-radius:14px;
+      padding:32px;
+      max-width:700px;
+      margin:auto;
+      box-shadow:0 0 40px rgba(0,0,0,0.7);
+    }
+    .form-control{
+      background:#1a1a1a;
+      border:1px solid #333;
+      color:#fff;
+    }
+    .form-control:focus{
+      background:#1a1a1a;
+      border-color:#0dcaf0;
+      box-shadow:0 0 0 .25rem rgba(13,202,240,.25);
+      color:#fff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="contact-card">
+  <h2 class="mb-3">Contact Us</h2>
+  <p class="text-secondary mb-4">We'd love to hear from you! Fill out the form below and we’ll get back to you soon.</p>
+
+  <form>
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input type="text" class="form-control" placeholder="Your name" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" placeholder="you@example.com" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Message</label>
+      <textarea class="form-control" rows="4" placeholder="Write your message here..."></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-info text-dark fw-bold">Send Message</button>
+  </form>
+</div>
+
+{% endblock content %}

@@ -22,7 +22,7 @@
                                     <input type="hidden" name="db_id" value="{{ item.db_id }}">
                                     <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                 </form>
-                                <a class="btn btn-sm btn-secondary" href="/admin/update/{{ item.db_id }}">Update</a>
+                                <a class="btn btn-sm btn-secondary" href="/update_item/{{ item.db_id }}">Update</a>
                             </div>
                         </div>
                     </div>
@@ -33,4 +33,4 @@
         </div>
     </div>
 
-{% endblock %}
+{% endblock content %}

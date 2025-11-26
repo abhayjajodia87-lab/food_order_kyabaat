@@ -47,11 +47,16 @@
   {% if menu and menu|length > 0 %} {% for item in menu %}
   <div class="col-md-6 col-lg-4">
     <div class="menu-item">
-      <img src="{{ item.img }}" alt="${item.img}" />
+      <img src="{{ item.img }}" alt="{{ item.name }}" />
       <div class="menu-content">
         <h3>{{item.name}}</h3>
         <p>{{item.description}}</p>
         <span>₹{{item.price}}</span>
+        <form method="post" action="{{ url_for('add_to_cart') }}" class="mt-2">
+          <input type="hidden" name="db_id" value="{{ item.db_id }}">
+          <input type="hidden" name="qty" value="1">
+          <button type="submit" class="btn btn-sm btn-warning">Add to cart</button>
+        </form>
       </div>
     </div>
   </div>
